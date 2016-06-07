@@ -1,0 +1,32 @@
+server {
+    listen   80;
+    server_name  mairie.localhost.dev;
+
+    access_log  /var/logs_nginx/mairie.localhost.dev/nginx_access.log;
+    error_log  /var/logs_nginx/mairie.localhost.dev/nginx_error.log;
+
+    location / {
+            autoindex on;
+            root   /usr/share/nginx/html/mairie;
+            index  index.php index.html index.htm;
+        }
+
+    location ~* \.php$ {
+            fastcgi_index   index.php;
+            fastcgi_pass    php:9000;
+            #fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
+            include         fastcgi_params;
+            fastcgi_param   SCRIPT_FILENAME    /srv/http/mairie/$fastcgi_script_name;
+            fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
+        }
+
+    error_page   500 502 503 504  /50x.html;
+    
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    location ~ /\.ht {
+        deny  all;
+    }
+}
