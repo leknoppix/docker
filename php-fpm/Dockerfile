@@ -1,7 +1,7 @@
 FROM php:5.6.11-fpm
 MAINTAINER Arnaud POINTET <arnaud.pointet@gmail.com>
 
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev ssh
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ libmcrypt-dev
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
 
@@ -22,10 +22,6 @@ ENV LC_ALL fr_FR.utf8
 ENTRYPOINT php-fpm --nodaemonize
 
 EXPOSE 9000
-
-EXPOSE 22
-
-CMD ["/usr/sbin/sshd", "-D"]
 
 VOLUME /var/www
 

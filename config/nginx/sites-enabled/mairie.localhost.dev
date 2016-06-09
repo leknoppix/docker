@@ -2,21 +2,19 @@ server {
     listen   80;
     server_name  mairie.localhost.dev;
 
-    #access_log  /var/www/logs_nginx/mairie.localhost.dev/nginx_access.log;
-    #error_log  /var/www/logs_nginx/mairie.localhost.dev/nginx_error.log;
+    access_log  /var/log/nginx/mairie.localhost.dev/access.log;
+    error_log   /var/log/nginx/mairie.localhost.dev/error.log;
 
-    location / {
-            autoindex on;
-            root   /var/www/mairie/;
-            index  index.php index.html index.htm;
-        }
+    autoindex on;
+        root   /var/www/mairie;
+        index  index.php index.html index.htm;
 
     location ~* \.php$ {
             fastcgi_index   index.php;
             fastcgi_pass    php:9000;
             #fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
             include         fastcgi_params;
-            fastcgi_param   SCRIPT_FILENAME    /var/www/mairie$fastcgi_script_name;
+            fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
             fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
         }
 

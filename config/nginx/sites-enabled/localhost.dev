@@ -2,11 +2,10 @@ server {
         listen       80;
         server_name  localhost.dev;
 
-        location / {
-            autoindex on;
-            root   /var/www;
-            index  index.html index.htm;
-        }
+        autoindex on;
+        root   /var/www;
+        index  index.php index.html index.htm;
+
 
         #error_page  404              /404.html;
 
@@ -23,7 +22,7 @@ server {
             fastcgi_pass    php:9000;
             #fastcgi_pass   unix:/var/run/php-fpm/php-fpm.sock;
             include         fastcgi_params;
-            fastcgi_param   SCRIPT_FILENAME    /var/www$fastcgi_script_name;
+            fastcgi_param   SCRIPT_FILENAME    $document_root$fastcgi_script_name;
             fastcgi_param   SCRIPT_NAME        $fastcgi_script_name;
         }
 
@@ -32,4 +31,6 @@ server {
         location ~ /\.ht {
             deny  all;
         }
+        access_log /var/log/nginx/localhost.dev/access.log;
+        error_log  /var/log/nginx/localhost.dev/error.log;
     }
