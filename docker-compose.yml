@@ -9,7 +9,8 @@ php:
         - db:db
         - maildev:maildev
 nginx:
-    image: nginx
+    build: nginx
+    restart: always
     links:
         - php:php
         - phpmyadmin:phpmyadmin
