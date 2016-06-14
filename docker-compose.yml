@@ -1,3 +1,9 @@
+db:
+    image: mysql
+    volumes:
+        - /var/mysql:/var/lib/mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
 php:
     build: php-fpm
     restart: always
@@ -24,12 +30,6 @@ nginx:
     ports:
         - 80:80
     command: nginx -c /nginx.conf
-db:
-    image: mysql
-    volumes:
-        - /var/mysql:/var/lib/mysql
-    environment:
-        - MYSQL_ROOT_PASSWORD=root
 maildev:
     image: djfarrelly/maildev
     ports:

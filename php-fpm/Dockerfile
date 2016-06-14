@@ -6,7 +6,7 @@ RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
 
 RUN apt-get update \
-    &&  docker-php-ext-install mbstring pdo_mysql mcrypt mysql
+    &&  docker-php-ext-install mbstring pdo_mysql mcrypt mysql gettext
 
 ADD conf/www.conf /etc/php5/fpm/pool.d/www.conf
 
