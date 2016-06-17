@@ -49,3 +49,6 @@ phpmyadmin:
         PMA_ABSOLUTE_URI: http://phpmyadmin.localhost.dev/
     ports:
         - 8080:80
+#composer:
+#    build: composer
+#    restart: always
