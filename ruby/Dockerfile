@@ -35,3 +35,7 @@ RUN apt-get -qq update && \
   rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ENV LANG en_US.UTF-8
+
+RUN mkdir /var/ruby
+
+WORKDIR /var/ruby
