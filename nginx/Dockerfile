@@ -3,7 +3,7 @@ MAINTAINER Pascal Canadas
 
 RUN apt-get update && apt-get install -y logrotate
 
-ADD nginx /etc/logrotate.d/nginx
+ADD nginx-conf/nginx /etc/logrotate.d/nginx
 
 WORKDIR /etc/nginx
 
@@ -12,4 +12,5 @@ CMD ["nginx"]
 
 # Expose ports.
 EXPOSE 80
+
 EXPOSE 443
