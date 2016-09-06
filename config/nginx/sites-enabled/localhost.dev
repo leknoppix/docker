@@ -32,6 +32,6 @@ server {
             deny  all;
         }
 
-        access_log /var/log/nginx/localhost.dev/access.log;
-        error_log  /var/log/nginx/localhost.dev/error.log;
+        access_log /var/log/nginx/localhost.dev_access.log;
+        error_log  /var/log/nginx/localhost.dev_error.log;
     }

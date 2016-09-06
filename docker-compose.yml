@@ -24,7 +24,6 @@ nginx:
         - ungit:ungit
     volumes:
         - /var/www:/var/www
-        - /var/configuration/nginx/nginx.conf:/nginx.conf
         - /var/configuration/nginx/sites-enabled:/etc/nginx/sites-enabled
         - /var/log:/var/log
     ports:

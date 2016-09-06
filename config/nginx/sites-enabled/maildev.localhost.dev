@@ -10,6 +10,6 @@ server {
          proxy_pass http://maildev;
      }
 
-    access_log /var/log/nginx/maildev.localhost.dev/access.log;
-    error_log  /var/log/nginx/maildev.localhost.dev/error.log;
+    access_log /var/log/nginx/maildev.localhost.dev_access.log;
+    error_log  /var/log/nginx/maildev.localhost.dev_error.log;
 }

@@ -3,7 +3,7 @@ MAINTAINER Pascal Canadas
 
 RUN apt-get update && apt-get install -y logrotate
 
-ADD nginx-conf/nginx /etc/logrotate.d/nginx
+ADD nginx-conf/nginx.conf /nginx.conf
 
 WORKDIR /etc/nginx
 

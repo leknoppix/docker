@@ -10,6 +10,6 @@ server {
          proxy_pass http://phpmyadmin;
      }
 
-    access_log /var/log/nginx/phpmyadmin.localhost.dev/access.log;
-    error_log  /var/log/nginx/phpmyadmin.localhost.dev/error.log;
+    access_log /var/log/nginx/phpmyadmin.localhost.dev_access.log;
+    error_log  /var/log/nginx/phpmyadmin.localhost.dev_error.log;
 }

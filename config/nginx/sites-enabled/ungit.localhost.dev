@@ -10,6 +10,6 @@ server {
         proxy_pass http://ungit:9090;
     }
 
-    access_log /var/log/nginx/ungit.localhost.dev/access.log;
-    error_log  /var/log/nginx/ungit.localhost.dev/error.log;
+    access_log /var/log/nginx/ungit.localhost.dev_access.log;
+    error_log  /var/log/nginx/ungit.localhost.dev_error.log;
 }

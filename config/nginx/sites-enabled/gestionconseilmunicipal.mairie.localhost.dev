@@ -2,8 +2,8 @@ server {
     listen   80;
     server_name  gestionconseilmunicipal.mairie.localhost.dev;
 
-    access_log  /var/log/nginx/gestionconseilmunicipal.mairie.localhost.dev/access.log;
-    error_log   /var/log/nginx/gestionconseilmunicipal.mairie.localhost.dev/error.log;
+    access_log  /var/log/nginx/gestionconseilmunicipal.mairie.localhost.dev_access.log;
+    error_log   /var/log/nginx/gestionconseilmunicipal.mairie.localhost.dev_error.log;
 
     autoindex on;
     root   /var/www/mairie/gestionconseilmunicipal/webroot;
@@ -12,7 +12,7 @@ server {
     location / {
         try_files $uri /index.php?$args;
     }
-    
+
     location ~* \.php$ {
             fastcgi_index   index.php;
             fastcgi_pass    php:9000;
@@ -23,7 +23,7 @@ server {
         }
 
     error_page   500 502 503 504  /50x.html;
-    
+
 
     # deny access to .htaccess files, if Apache's document root
     # concurs with nginx's one
