@@ -38,6 +38,8 @@ ungit:
     restart: always
     volumes:
         - /var/www:/var/www
+        - /var/nodejs:/var/nodejs
+        - /var/ruby:/var/ruby
     ports:
         - 9090:9090
 phpmyadmin:
