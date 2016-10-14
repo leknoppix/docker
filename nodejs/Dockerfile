@@ -1,7 +1,7 @@
 FROM debian
 MAINTAINER Pascal Canadas
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update 
+RUN DEBIAN_FRONTEND=noninteractive apt-get update
 
 RUN apt-get upgrade -y
 
@@ -11,10 +11,8 @@ RUN apt-get install -y \
 	wget \
 	curl \
 	imagemagick
-	
-RUN npm update npm
 
-RUN npm cache clean -f
+RUN npm update npm
 
 RUN npm install -g n
 

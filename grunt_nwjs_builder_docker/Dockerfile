@@ -1,4 +1,4 @@
-FROM leknoppix/grunt_nwjs_builder_docker
+FROM debian
 MAINTAINER leknoppix
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
@@ -12,8 +12,6 @@ RUN apt-get install -y \
 	curl
 
 RUN npm update npm
-
-RUN npm cache clean -f
 
 RUN npm install -g n
 
